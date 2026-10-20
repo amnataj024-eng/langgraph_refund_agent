@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LangGraph Refund Agent</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">R</div>
+      <div>
+        <h1>Refund Agent</h1>
+        <p>LangGraph Customer Support</p>
+      </div>
+    </div>
+    <span class="status"><span class="dot"></span> AI Agent</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <span class="eyebrow">CUSTOMER SUPPORT AUTOMATION</span>
+      <h2>How can we help you today?</h2>
+      <p>Submit a request to check an order, request a refund,
+        or get help from our customer support agent.</p>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <h3>Submit a request</h3>
+        <p class="muted">Describe your issue below.</p>
+
+        <form id="supportForm">
+          <label for="threadId">Conversation ID</label>
+          <input id="threadId" name="threadId" readonly>
+
+          <label for="message">Your message</label>
+          <textarea id="message" rows="5" required
+            placeholder="Example: Please refund ORD-1001"></textarea>
+
+          <div class="examples">
+            <button type="button" class="example"
+              data-message="Please refund ORD-1001">Refund ORD-1001</button>
+            <button type="button" class="example"
+              data-message="Track order ORD-1002">Track an order</button>
+          </div>
+
+          <button class="primary" id="submitBtn" type="submit">
+            Send Request <span>→</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="panel result-panel">
+        <h3>Agent response</h3>
+        <div id="emptyState" class="empty">
+          <div class="empty-icon">✦</div>
+          <h4>Ready to assist</h4>
+          <p>Your agent's response will appear here after you submit a request.</p>
+        </div>
+
+        <div id="result" hidden>
+          <div id="resultBadge" class="result-badge">Processing</div>
+          <h4 id="resultTitle">Request result</h4>
+          <p id="responseText" class="response-text"></p>
+          <pre id="details" class="details" hidden></pre>
+
+          <div id="reviewBox" class="review-box" hidden>
+            <h4>Human approval required</h4>
+            <p id="reviewText"></p>
+            <div class="review-actions">
+              <button id="approveBtn" class="primary" type="button">
+                Approve refund
+              </button>
+              <button id="rejectBtn" class="secondary" type="button">
+                Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card">
+        <span class="info-icon">⌕</span>
+        <h4>Order lookup</h4>
+        <p>Check order information using the order ID.</p>
+      </article>
+      <article class="info-card">
+        <span class="info-icon">✓</span>
+        <h4>Refund policy</h4>
+        <p>Eligibility is checked against the demo refund policy.</p>
+      </article>
+      <article class="info-card">
+        <span class="info-icon">♧</span>
+        <h4>Human review</h4>
+        <p>Some refund requests require a human decision.</p>
+      </article>
+    </section>
+
+    <p id="notice" class="notice" role="status"></p>
+  </main>
+
+  <footer>LangGraph Refund Agent · Educational Demo</footer>
+</body>
+</html>
